@@ -12,7 +12,7 @@ define('TEMPLATE_PREFIX', "../views/{$template}");
 define('TEMPLATE_POSTFIX', '.tpl');
 
 // пути к файлам шаблонов в вебпространстве
-define('TEMPLATE_WEB_PATH', "/templates/{$template}");
+define('TEMPLATE_WEB_PATH', "./www/templates/{$template}");
 
 require_once '../library/Smarty/libs/Smarty.class.php';
 $smarty = new Smarty();
