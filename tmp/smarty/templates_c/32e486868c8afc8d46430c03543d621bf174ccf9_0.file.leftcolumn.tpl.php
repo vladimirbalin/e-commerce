@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-14 21:52:42
+/* Smarty version 3.1.34-dev-7, created on 2020-10-16 23:43:35
   from 'D:\web-no-sync\openserver\OpenServer\domains\e-commerce\views\default\leftcolumn.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f871ecac63665_77808898',
+  'unifunc' => 'content_5f89dbc7c77949_01207598',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '32e486868c8afc8d46430c03543d621bf174ccf9' => 
     array (
       0 => 'D:\\web-no-sync\\openserver\\OpenServer\\domains\\e-commerce\\views\\default\\leftcolumn.tpl',
-      1 => 1602690513,
+      1 => 1602870206,
       2 => 'file',
     ),
   ),
@@ -20,13 +20,35 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f871ecac63665_77808898 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f89dbc7c77949_01207598 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="leftColumn">
     <div id="leftMenu">
         <div class="menuCaption">Меню:</div>
-        пункт1<br/>
-        пункт2<br/>
-        пункт3<br/>
+        <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['rsCategories']->value, 'item');
+$_smarty_tpl->tpl_vars['item']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['item']->value) {
+$_smarty_tpl->tpl_vars['item']->do_else = false;
+?>
+            -<a href="#"><?php echo $_smarty_tpl->tpl_vars['item']->value['name'];?>
+</a><br/>
+            <?php if ((isset($_smarty_tpl->tpl_vars['item']->value['children']))) {?>
+                <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['item']->value['children'], 'boredom');
+$_smarty_tpl->tpl_vars['boredom']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['boredom']->value) {
+$_smarty_tpl->tpl_vars['boredom']->do_else = false;
+?>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="#"><?php echo $_smarty_tpl->tpl_vars['boredom']->value['name'];?>
+</a><br/>
+                <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+            <?php }?>
+        <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     </div>
 </div><?php }
 }

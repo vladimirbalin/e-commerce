@@ -2,8 +2,9 @@
 require_once '../config/config.php';
 
 
-function loadPage($smarty, $controllerName, $actionName = 'index')
+function loadPage($controllerName, $actionName = 'index')
 {
+    global $smarty;
     include_once PATH_PREFIX . $controllerName . PATH_POSTFIX;
 
     $function = $actionName . 'Action';
@@ -22,4 +23,12 @@ function d($obj = null, $die = 1)
     echo "</pre>";
 
     if ($die) die;
+}
+
+function sqlToArray($sql)
+{
+    if(!$sql) return false;
+    global $pdo;
+    $query = $pdo->query($sql);
+    return $query->fetchAll(PDO::FETCH_ASSOC);
 }
