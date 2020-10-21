@@ -1,4 +1,5 @@
 <?php
+
 require_once '../config/config.php';
 
 
@@ -27,7 +28,7 @@ function d($obj = null, $die = 1)
 
 function sqlToArray($sql)
 {
-    if(!$sql) return false;
+    if (!$sql) return false;
     global $pdo;
     $query = $pdo->query($sql);
     return $query->fetchAll(PDO::FETCH_ASSOC);

@@ -2,11 +2,12 @@
     <div id="leftMenu">
         <div class="menuCaption">Меню:</div>
         {foreach $rsCategories as $item}
-            -<a href="#">{$item['name']}</a><br/>
+            <a href="/category/{$item['id']}/">{$item['name']}</a>
+            <br/>
             {if isset($item['children'])}
-                {foreach $item['children'] as $boredom}
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="#">{$boredom['name']}</a><br/>
+                {foreach $item['children'] as $child}
+                    &nbsp;&nbsp;&nbsp;&nbsp;<a href="/category/{$child['id']}/">{$child['name']}</a>
+                    <br/>
                 {/foreach}
             {/if}
         {/foreach}

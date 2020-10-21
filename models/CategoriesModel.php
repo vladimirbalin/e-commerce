@@ -1,5 +1,6 @@
 <?php
-require '../config/db.php';
+
+
 function getMainCategories()
 {
     global $pdo;
@@ -18,6 +19,20 @@ function getMainCategories()
 function getChildrenOfCategories($catId)
 {
     $sql = "SELECT * FROM categories
-            WHERE parent_id=$catId";
+            WHERE parent_id='{$catId}'";
+    return sqlToArray($sql);
+}
+
+/**
+ * Получить данные категории по id
+ *
+ * @param integer $catId ID категории
+ * @return array - строка из бд категории
+ */
+
+function getCategoryById($catId)
+{
+    $sql = "SELECT * FROM categories
+            WHERE id='{$catId}'";
     return sqlToArray($sql);
 }
