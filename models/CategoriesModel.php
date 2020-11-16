@@ -1,7 +1,7 @@
 <?php
 
 
-function getMainCategories()
+function getMainCategoriesWithChildren()
 {
     global $pdo;
     $sql = 'SELECT * FROM categories

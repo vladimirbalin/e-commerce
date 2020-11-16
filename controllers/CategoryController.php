@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Контроллер страницы категории (category/1)
+ * Контроллер страницы категории (/category/1)
  */
 
 require_once '../models/CategoriesModel.php';
@@ -22,7 +22,7 @@ function indexAction($smarty)
         $rsProducts = getProductsByCategory($catId);
     }
 
-    $rsCategories = getMainCategories();
+    $rsCategories = getMainCategoriesWithChildren();
     $smarty->assign('pageTitle', 'Товары категории ' . $rsCategory[0]['name']);
     $smarty->assign('rsCategory', $rsCategory);
     $smarty->assign('rsProducts', $rsProducts);

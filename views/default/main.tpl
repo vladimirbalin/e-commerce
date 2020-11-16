@@ -7,12 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{$pageTitle}</title>
     <link rel="stylesheet" href="{$templateWebPath}/css/main.css" type="text/css">
+    <script src="/www/js/script.js"></script>
+{*    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>*}
 </head>
 <body>
 <div class="container">
     {$pageTitle}
     <div id="header">
-        <h1>my shop - интернет магазин</h1>
+        <h1>
+            <a href="http://e-commerce">my shop - интернет магазин</a></h1>
     </div>
-
+<div class="main">
     {include file="leftcolumn.tpl"}

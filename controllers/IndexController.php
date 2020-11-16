@@ -5,7 +5,8 @@ require_once '../models/ProductsModel.php';
 
 function indexAction($smarty)
 {
-    $rsCategories = getMainCategories();
+
+    $rsCategories = getMainCategoriesWithChildren();
     $rsProducts = getLastProducts(16);
     $smarty->assign('pageTitle', 'Главная страница сайта');
     $smarty->assign('rsCategories', $rsCategories);

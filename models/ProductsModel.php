@@ -17,3 +17,10 @@ function getProductsByCategory($catId)
             WHERE category_id='{$catId}'";
     return sqlToArray($sql);
 }
+
+function getProductById($productId)
+{
+    $sql = "SELECT * FROM products
+            WHERE id='{$productId}'";
+    return sqlToArray($sql)[0];
+}
