@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-11-16 10:42:27
+/* Smarty version 3.1.34-dev-7, created on 2020-11-21 13:17:07
   from 'D:\web-no-sync\openserver\OpenServer\domains\e-commerce\views\default\product.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5fb203338c1af2_24312830',
+  'unifunc' => 'content_5fb8bef3bba369_84980989',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '53d4c26d329e207be37d8f01e5e281709b50d49b' => 
     array (
       0 => 'D:\\web-no-sync\\openserver\\OpenServer\\domains\\e-commerce\\views\\default\\product.tpl',
-      1 => 1605501745,
+      1 => 1605942959,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5fb203338c1af2_24312830 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fb8bef3bba369_84980989 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="product">
     <h3><?php echo $_smarty_tpl->tpl_vars['rsProduct']->value['name'];?>
 </h3>
@@ -29,16 +29,18 @@ function content_5fb203338c1af2_24312830 (Smarty_Internal_Template $_smarty_tpl)
 ">
     <p>Стоимость: <?php echo $_smarty_tpl->tpl_vars['rsProduct']->value['price'];?>
 </p>
-    <a href="#" id="addCart_<?php echo $_smarty_tpl->tpl_vars['rsProduct']->value['id'];?>
+    <a href="#"
+       id="addToCart_<?php echo $_smarty_tpl->tpl_vars['rsProduct']->value['id'];?>
 "
-        <?php if ($_smarty_tpl->tpl_vars['itemInCart']->value === 1) {?> class="hide" <?php }?>
-        onClick="addToCart(<?php echo $_smarty_tpl->tpl_vars['rsProduct']->value['id'];?>
+            <?php if ($_smarty_tpl->tpl_vars['itemInCart']->value === 1) {?> class="hide" <?php }?>
+       onClick="addToCart(<?php echo $_smarty_tpl->tpl_vars['rsProduct']->value['id'];?>
 ); return false;"
     >Добавить в корзину</a>
-    <a href="#" id="removeCart_<?php echo $_smarty_tpl->tpl_vars['rsProduct']->value['id'];?>
+    <a href="#"
+       id="removeFromCart_<?php echo $_smarty_tpl->tpl_vars['rsProduct']->value['id'];?>
 "
-        <?php if ($_smarty_tpl->tpl_vars['itemInCart']->value === 0) {?> class="hide" <?php }?>
-        onclick="removeFromCart(<?php echo $_smarty_tpl->tpl_vars['rsProduct']->value['id'];?>
+            <?php if ($_smarty_tpl->tpl_vars['itemInCart']->value === 0) {?> class="hide" <?php }?>
+       onclick="removeFromCart(<?php echo $_smarty_tpl->tpl_vars['rsProduct']->value['id'];?>
 ); return false;">Убрать из корзины</a>
     <p>Описание: <?php echo $_smarty_tpl->tpl_vars['rsProductDescription']->value;?>
 </p>

@@ -11,7 +11,6 @@
             {/foreach}
         {/if}
     {/foreach}
-    {*    Добавлено в корзину:<p id="cartCountItems"></p>*}
     <div class="menuCaption">Корзина</div>
     <a href="/cart/">В корзине</a>
     <span id="cartCountItems">

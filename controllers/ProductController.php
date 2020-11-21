@@ -9,7 +9,6 @@ require_once '../models/CategoriesModel.php';
 
 /**
  * Формирование страницы продукта
- *
  * @param object $smarty шаблонизатор
  */
 function indexAction($smarty)

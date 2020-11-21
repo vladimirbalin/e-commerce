@@ -31,5 +31,6 @@ function sqlToArray($sql)
     if (!$sql) return false;
     global $pdo;
     $query = $pdo->query($sql);
-    return $query->fetchAll(PDO::FETCH_ASSOC);
+
+    return !$query ? false : $query->fetchAll(PDO::FETCH_ASSOC);
 }
