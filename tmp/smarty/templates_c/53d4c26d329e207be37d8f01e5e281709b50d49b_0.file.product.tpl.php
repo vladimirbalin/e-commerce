@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-11-21 13:17:07
+/* Smarty version 3.1.34-dev-7, created on 2020-11-24 20:35:12
   from 'D:\web-no-sync\openserver\OpenServer\domains\e-commerce\views\default\product.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5fb8bef3bba369_84980989',
+  'unifunc' => 'content_5fbd1a200d5f56_22528828',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '53d4c26d329e207be37d8f01e5e281709b50d49b' => 
     array (
       0 => 'D:\\web-no-sync\\openserver\\OpenServer\\domains\\e-commerce\\views\\default\\product.tpl',
-      1 => 1605942959,
+      1 => 1606228470,
       2 => 'file',
     ),
   ),
@@ -20,11 +20,11 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5fb8bef3bba369_84980989 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fbd1a200d5f56_22528828 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="product">
     <h3><?php echo $_smarty_tpl->tpl_vars['rsProduct']->value['name'];?>
 </h3>
-    <img style="max-width: 575px;" src="/www/images/products/<?php echo $_smarty_tpl->tpl_vars['rsProduct']->value['image'];?>
+    <img style="max-width: 575px;max-height: 460px;" src="/www/images/products/<?php echo $_smarty_tpl->tpl_vars['rsProduct']->value['image'];?>
 " alt="<?php echo $_smarty_tpl->tpl_vars['rsProduct']->value['image'];?>
 ">
     <p>Стоимость: <?php echo $_smarty_tpl->tpl_vars['rsProduct']->value['price'];?>
@@ -33,7 +33,7 @@ function content_5fb8bef3bba369_84980989 (Smarty_Internal_Template $_smarty_tpl)
        id="addToCart_<?php echo $_smarty_tpl->tpl_vars['rsProduct']->value['id'];?>
 "
             <?php if ($_smarty_tpl->tpl_vars['itemInCart']->value === 1) {?> class="hide" <?php }?>
-       onClick="addToCart(<?php echo $_smarty_tpl->tpl_vars['rsProduct']->value['id'];?>
+       onclick="addToCart(<?php echo $_smarty_tpl->tpl_vars['rsProduct']->value['id'];?>
 ); return false;"
     >Добавить в корзину</a>
     <a href="#"

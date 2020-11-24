@@ -34,3 +34,12 @@ function sqlToArray($sql)
 
     return !$query ? false : $query->fetchAll(PDO::FETCH_ASSOC);
 }
+
+function sqlInsertWithPrepare($sql, $rsArray)
+{
+    if (!$sql) return false;
+    global $pdo;
+    $pdo->prepare($sql)->execute($rsArray);
+
+    return true;
+}

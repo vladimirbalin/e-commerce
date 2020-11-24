@@ -1,6 +1,5 @@
 <?php
 
-
 function getLastProducts($limit = null)
 {
     $sql = 'SELECT * FROM products

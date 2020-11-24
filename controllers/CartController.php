@@ -14,13 +14,14 @@ require_once '../models/ProductsModel.php';
  */
 function addToCartAction()
 {
-    $itemId = (int)$_GET['id'] ?? null;
+    $itemId = intval($_GET['id']) ?? null;
     if (!$itemId) return false;
 
     $resData = [];
     if (isset($_SESSION['cart']) && !in_array($itemId, $_SESSION['cart'])) {
         array_push($_SESSION['cart'], $itemId);
-        $resData = ['countItems' => count($_SESSION['cart']),
+        $resData = [
+            'countItems' => count($_SESSION['cart']),
             'success' => 1,
             'cart' => $_SESSION['cart']];
     } else {

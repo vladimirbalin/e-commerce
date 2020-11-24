@@ -32,14 +32,14 @@
                     <a href="/product/{$product['id']}/">{$product['name']}</a>
                 </td>
                 <td>
-                    <button id="minusOneItem" onclick="minusOneItem({$product['id']})">-</button>
+                    <button id="minusOneItem" onclick="cartMainPage.minusOneItem({$product['id']})">-</button>
 
                     <input name="itemCnt_{$product['id']}" id="itemCnt_{$product['id']}"
                            size="1"
                            type="text"
                            value="1"
-                           onchange="conversionPrice({$product['id']});">
-                    <button id="plusOneItem" onclick="plusOneItem({$product['id']})">+</button>
+                           onchange="cartMainPage.conversionPrice({$product['id']});">
+                    <button id="plusOneItem" onclick="cartMainPage.plusOneItem({$product['id']})">+</button>
                 </td>
                 <td>
                     <span id="itemPrice_{$product['id']}">{$product['price']}</span>

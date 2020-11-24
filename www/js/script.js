@@ -1,3 +1,5 @@
+// document.addEventListener('DOMContentLoaded', function () {
+//     console.log('hi');
 function addToCart(itemId) {
     const cartCountItems = document.querySelector("#cartCountItems");
     const addCartBtn = document.querySelector(`#addToCart_${itemId}`);
@@ -34,23 +36,70 @@ function removeFromCart(itemId) {
         .catch(err => console.log(err));
 }
 
-function conversionPrice(itemId) {
-    let currentValue = document.querySelector(`#itemCnt_${itemId}`).value;
-    const price = document.querySelector(`#itemPrice_${itemId}`).innerHTML;
-    const totalPrice = document.querySelector(`#itemTotalPrice_${itemId}`);
+const cartMainPage = {
+    conversionPrice: function (itemId) {
+        let currentValue = document.querySelector(`#itemCnt_${itemId}`).value;
+        const price = document.querySelector(`#itemPrice_${itemId}`).innerHTML;
+        const totalPrice = document.querySelector(`#itemTotalPrice_${itemId}`);
 
-    totalPrice.innerHTML = currentValue * price;
-}
-
-function plusOneItem(itemId) {
-    let itemsCount = document.querySelector(`#itemCnt_${itemId}`);
-    itemsCount.value = Number(itemsCount.value) + 1;
-    conversionPrice(itemId);
-}
-function minusOneItem(itemId) {
-    let itemsCount = document.querySelector(`#itemCnt_${itemId}`);
-    if(itemsCount.value > 0){
-        itemsCount.value = Number(itemsCount.value) - 1;
+        if (!currentValue || currentValue < 0 || isNaN(currentValue)) {
+            totalPrice.innerHTML = 'с числом проблема';
+        } else {
+            totalPrice.innerHTML = currentValue * price;
+        }
+    },
+    plusOneItem: function (itemId) {
+        let itemsCount = document.querySelector(`#itemCnt_${itemId}`);
+        if (itemsCount.value >= 0) {
+            itemsCount.value = Number(itemsCount.value) + 1;
+        }
+        cartMainPage.conversionPrice(itemId);
+    },
+    minusOneItem: function (itemId) {
+        let itemsCount = document.querySelector(`#itemCnt_${itemId}`);
+        if (itemsCount.value > 0) {
+            itemsCount.value = Number(itemsCount.value) - 1;
+        }
+        cartMainPage.conversionPrice(itemId);
     }
-    conversionPrice(itemId);
 }
+
+function getData(objForm) {
+    let hData = {};
+
+    const inputs = objForm.getElementsByTagName('input');
+    const textareas = objForm.getElementsByTagName('textarea');
+    const selects = objForm.getElementsByTagName('select');
+    [...inputs, ...textareas, ...selects].forEach((el, idx) => {
+        if (el.name && el.name !== '') {
+            hData[el.name] = el.value;
+            console.log(`hData[${el.name}] = ${hData[el.name]}`);
+        }
+    });
+    return hData;
+}
+
+function registerNewUser() {
+    let postData = getData(document.getElementById('registerBox'));
+    fetch(`/user/register/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(postData)
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            if (data['success']) {
+                alert('Регистрация прошла успешно');
+                document.getElementById('registerBox').classList.add('hide');
+            } else {
+                alert(data['message']);
+            }
+        })
+}
+
+// });
+
+
