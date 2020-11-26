@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-11-24 20:27:17
+/* Smarty version 3.1.34-dev-7, created on 2020-11-26 14:55:47
   from 'D:\web-no-sync\openserver\OpenServer\domains\e-commerce\views\default\leftcolumn.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5fbd1845c9ba64_46391019',
+  'unifunc' => 'content_5fbf6d93f16689_25685559',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '32e486868c8afc8d46430c03543d621bf174ccf9' => 
     array (
       0 => 'D:\\web-no-sync\\openserver\\OpenServer\\domains\\e-commerce\\views\\default\\leftcolumn.tpl',
-      1 => 1606228021,
+      1 => 1606380946,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5fbd1845c9ba64_46391019 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fbf6d93f16689_25685559 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="leftColumn">
     <div class="menuCaption">Меню:</div>
     <?php
@@ -52,7 +52,11 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-
+    <br>
+    <div id="userBox" class="hide">
+        <a href="/user/" id="userLink"></a><br>
+        <a href="/user/logout/" id="logout">Выход</a>
+    </div>
     <div id="registerBox">
         <div class="menuCaption showHidden" onclick="showRegisterBox()">Регистрация</div>
         <div id="registerBoxHidden">

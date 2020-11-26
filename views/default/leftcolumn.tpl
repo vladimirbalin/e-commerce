@@ -11,7 +11,11 @@
             {/foreach}
         {/if}
     {/foreach}
-
+    <br>
+    <div id="userBox" class="hide">
+        <a href="/user/" id="userLink"></a><br>
+        <a href="/user/logout/" id="logout">Выход</a>
+    </div>
     <div id="registerBox">
         <div class="menuCaption showHidden" onclick="showRegisterBox()">Регистрация</div>
         <div id="registerBoxHidden">

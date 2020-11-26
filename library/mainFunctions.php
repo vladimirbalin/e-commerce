@@ -43,3 +43,9 @@ function sqlInsertWithPrepare($sql, $rsArray)
 
     return true;
 }
+
+
+function redirect($url = '/'){
+    header("Location: {$url}");
+    exit;
+}

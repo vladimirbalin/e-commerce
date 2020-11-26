@@ -1,5 +1,3 @@
-// document.addEventListener('DOMContentLoaded', function () {
-//     console.log('hi');
 function addToCart(itemId) {
     const cartCountItems = document.querySelector("#cartCountItems");
     const addCartBtn = document.querySelector(`#addToCart_${itemId}`);
@@ -92,14 +90,17 @@ function registerNewUser() {
         .then(data => {
             console.log(data);
             if (data['success']) {
+                let userLink = document.getElementById('userLink');
+                let registerBox = document.getElementById('registerBox');
+                let userBox = document.getElementById('userBox');
+
                 alert('Регистрация прошла успешно');
-                document.getElementById('registerBox').classList.add('hide');
+                registerBox.classList.add('hide');
+                userLink.innerText = `Пользователь: ${data['userName']}`;
+                userBox.classList.remove('hide');
             } else {
                 alert(data['message']);
             }
         })
 }
-
-// });
-
 

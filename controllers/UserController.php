@@ -28,20 +28,19 @@ function registerAction()
 
     $resData = checkForErrors($email, $pwd1, $pwd2);
 
-    if(!$resData && checkEmailForRepeat($email)){
+    if (!$resData && checkEmailForRepeat($email)) {
         $resData['success'] = false;
         $resData['message'] = "Пользователя с таким email('{$email}') уже зарегистрирован";
     }
-    d($resData);
-    if(!$resData){ // check having all fields
+    if (!$resData) { // check having all fields
         $pwdHash = password_hash($pwd1, PASSWORD_DEFAULT);
         $userData = registerNewUser($email, $pwdHash, $name, $phone, $address);
-        if($userData['success']){
+        if ($userData['success']) {
             $resData['message'] = 'Пользователь успешно зарегистрирован';
             $resData['success'] = 1;
 
             $userData = $userData[0];
-            $resData['userName'] = $userData['name'] ?? $userData['email'];
+            $resData['userName'] = $userData['name'] ? $userData['name'] : $userData['email'];
             $resData['userEmail'] = $email;
 
             $_SESSION['user'] = $userData;
@@ -52,4 +51,13 @@ function registerAction()
         }
     }
     echo json_encode($resData);
+}
+
+function logoutAction()
+{
+    if (isset($_SESSION['user'])) {
+        unset($_SESSION['user']);
+        unset($_SESSION['cart']);
+    }
+    redirect('/');
 }
