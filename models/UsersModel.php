@@ -45,14 +45,6 @@ function registerNewUser($email, $pwdHash, $name, $phone, $address)
     return $rs;
 }
 
-/**
- * Проверка параметров для регистрации пользователя
- *
- * @param string $email
- * @param string $pwd1
- * @param string $pwd2 pass check
- * @return array результирующий массив
- */
 function checkForErrors($email, $pwd1, $pwd2)
 {
     $res = [];

@@ -7,10 +7,10 @@ require_once '../models/CategoriesModel.php';
 require_once '../models/UsersModel.php';
 
 /**
- * AJAX регистрация пользователя
+ * регистрация пользователя
  * Инициализация сессионной переменной ($_SESSION['user'])
  *
- * @return string|false информация об операции (успех, массив с данными о пользователе)
+ * @return string информация об операции (успех, массив с данными о пользователе)
  */
 function registerAction()
 {
@@ -32,7 +32,8 @@ function registerAction()
         $resData['success'] = false;
         $resData['message'] = "Пользователя с таким email('{$email}') уже зарегистрирован";
     }
-    if(!$resData){
+    d($resData);
+    if(!$resData){ // check having all fields
         $pwdHash = password_hash($pwd1, PASSWORD_DEFAULT);
         $userData = registerNewUser($email, $pwdHash, $name, $phone, $address);
         if($userData['success']){
