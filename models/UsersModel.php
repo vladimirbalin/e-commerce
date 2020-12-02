@@ -13,11 +13,6 @@
 
 function registerNewUser($email, $pwdHash, $name, $phone, $address)
 {
-    function filterInputData($data)
-    {
-        return htmlspecialchars(stripslashes(trim($data)));
-    }
-
     $email = filterInputData($email);
     $name = filterInputData($name);
     $phone = filterInputData($phone);
@@ -73,9 +68,83 @@ function checkForErrors($email, $pwd1, $pwd2)
  * @param string $email
  * @return array|false массив - строка из таблицы users, либо false
  */
+
 function checkEmailForRepeat($email)
 {
     $sql = "SELECT id FROM users
             WHERE email='{$email}'";
+    return sqlToArray($sql);
+}
+
+/**
+ * Залогинивание юзера
+ * @param $email
+ * @param $pwd
+ * @return array user's data
+ */
+function loginUser($email, $pwd)
+{
+    $email = filterInputData($email);
+
+    $sql = "SELECT * FROM users
+            WHERE (email='{$email}')
+            LIMIT 1";
+
+    $rs = sqlToArray($sql);
+
+    $checkPwd = password_verify($pwd, $rs[0]['pwd']);
+    $rs['success'] = $checkPwd ? 1 : 0;
+
+    return $rs;
+}
+
+/**
+ * Обновляет данные пользователя
+ * @param $name
+ * @param $phone
+ * @param $address
+ * @param $pwd1
+ * @param $pwd2
+ * @param $curPwd
+ * @return boolean true if success
+ */
+
+function updateUserData($name, $phone, $address, $pwd1, $pwd2, $curPwd)
+{
+    $email = filterInputData($_SESSION['user']['email']);
+    $name = filterInputData($name);
+    $phone = filterInputData($phone);
+    $address = filterInputData($address);
+
+    if (!password_verify($curPwd, $_SESSION['user']['pwd'])) {
+        return false;
+    }
+    $curPwdHash = getPwd($email)[0]['pwd'];
+
+    $newPwd = null;
+    if ($pwd1 && ($pwd1 == $pwd2)) {
+        $newPwd = password_hash($pwd1, PASSWORD_DEFAULT);
+    }
+
+    $sql = "UPDATE users
+            SET ";
+    if ($newPwd) {
+        $sql .= "pwd = '{$newPwd}', ";
+    }
+    $sql .= "name='{$name}',
+            phone='{$phone}',
+            address='{$address}'
+                WHERE
+            email='{$email}' AND pwd='{$curPwdHash}'
+            ";
+    return sqlExec($sql);
+}
+
+function getPwd($email)
+{
+    $sql = "SELECT pwd 
+            FROM users
+            WHERE email='{$email}'
+            LIMIT 1";
     return sqlToArray($sql);
 }

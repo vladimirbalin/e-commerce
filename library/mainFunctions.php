@@ -34,7 +34,16 @@ function sqlToArray($sql)
 
     return !$query ? false : $query->fetchAll(PDO::FETCH_ASSOC);
 }
-
+function sqlExec($sql)
+{
+    if (!$sql) return false;
+    global $pdo;
+    $query = $pdo->query($sql);
+    if($query){
+        return true;
+    }
+    return false;
+}
 function sqlInsertWithPrepare($sql, $rsArray)
 {
     if (!$sql) return false;
@@ -43,7 +52,10 @@ function sqlInsertWithPrepare($sql, $rsArray)
 
     return true;
 }
-
+function filterInputData($data)
+{
+    return htmlspecialchars(stripslashes(trim($data)));
+}
 
 function redirect($url = '/'){
     header("Location: {$url}");

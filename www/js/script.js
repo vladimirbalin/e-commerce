@@ -90,17 +90,66 @@ function registerNewUser() {
         .then(data => {
             console.log(data);
             if (data['success']) {
-                let userLink = document.getElementById('userLink');
-                let registerBox = document.getElementById('registerBox');
-                let userBox = document.getElementById('userBox');
-
                 alert('Регистрация прошла успешно');
-                registerBox.classList.add('hide');
-                userLink.innerText = `Пользователь: ${data['userName']}`;
-                userBox.classList.remove('hide');
+                document.getElementById('registerBox').classList.add('hide');
+                document.getElementById('userLink').innerText = `Пользователь: ${data['userName']}`;
+                document.getElementById('userBox').classList.remove('hide');
             } else {
                 alert(data['message']);
             }
         })
 }
 
+function login() {
+    let postData = getData(document.getElementById('loginBox'));
+    fetch(`/user/login/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(postData)
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            if (data['success']) {
+                document.getElementById('registerBox').classList.add('hide');
+                document.getElementById('loginBox').classList.add('hide');
+                document.getElementById('userLink').innerText = `Пользователь: ${data['userName']}`;
+                document.getElementById('userBox').classList.remove('hide');
+            } else {
+                alert(data['message'])
+            }
+
+        })
+}
+
+function showRegisterBox() {
+    const registerBoxHidden = document.getElementById('registerBoxHidden');
+    const arr = [...registerBoxHidden.classList];
+    if (arr.includes('hide')) {
+        registerBoxHidden.classList.remove('hide');
+    } else {
+        registerBoxHidden.classList.add('hide');
+    }
+}
+
+function updateUserData() {
+    let postData = getData(document.getElementById('tableUserData'));
+    fetch(`/user/update/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(postData)
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            if (data['success']) {
+                document.getElementById('userLink').innerHTML = `Пользователь: ${data['userName']}`;
+            }
+            alert(data['message']);
+        });
+
+}
