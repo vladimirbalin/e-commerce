@@ -111,12 +111,20 @@ function login() {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
+            console.log('data', data);
             if (data['success']) {
                 document.getElementById('registerBox').classList.add('hide');
                 document.getElementById('loginBox').classList.add('hide');
                 document.getElementById('userLink').innerText = `Пользователь: ${data['userName']}`;
                 document.getElementById('userBox').classList.remove('hide');
+                document.getElementById('btnSaveOrder').classList.remove('hide');
+
+                //filling fields on order page
+                document.getElementById('name').value = data['userName'];
+                document.getElementById('phone').value = data['phone'];
+                document.getElementById('address').value = data['address'];
+
+
             } else {
                 alert(data['message'])
             }

@@ -55,8 +55,8 @@ function removeFromCartAction()
 }
 
 /**
- * Формирование страницы корзины /cart/
- * @param object $smarty шаблонизатор
+ * Rendering a cart page /cart/
+ * @param object $smarty template engine
  */
 function indexAction($smarty)
 {
@@ -71,5 +71,58 @@ function indexAction($smarty)
 
     loadTemplate($smarty, 'main');
     loadTemplate($smarty, 'cart');
+    loadTemplate($smarty, 'footer');
+}
+
+/**
+ * Rendering an order page
+ * @param object $smarty template engine
+ * @return false
+ */
+
+function orderAction($smarty)
+{
+    $phonesIds = $_SESSION['cart'] ?? null;
+    if (!$phonesIds) {
+        redirect('/cart/');
+        return false;
+    }
+
+    // getting from $_POST count of buying items $id => $countOfPhones
+    $phonesToBuy = [];
+    foreach ($phonesIds as $id) {
+        $postVar = 'itemCnt_' . $id;
+        $phonesToBuy[$id] = $_POST[$postVar] ?? null;
+    }
+
+    $rsProducts = getProductsFromArray(array_keys($phonesToBuy));
+
+    if(!$rsProducts){
+        echo 'Корзина пуста';
+        return false;
+    }
+
+    foreach ($rsProducts as $key => &$phone) {
+        $phone['count'] = $phonesToBuy[$phone['id']] ?? 0;
+        if ($phone['count']) {
+            $phone['finalPrice'] = $phone['count'] * $phone['price'];
+        } else {
+            unset($rsProducts[$key]);
+        }
+    }
+
+    $_SESSION['saleCart'] = $rsProducts;
+
+    $rsCategories = getMainCategoriesWithChildren();
+    if(!isset($_SESSION['user'])){
+        $smarty->assign('hideLoginBox', 1);
+    }
+
+    $smarty->assign('pageTitle', 'Заказ');
+    $smarty->assign('rsCategories', $rsCategories);
+    $smarty->assign('rsProducts', $rsProducts);
+
+    loadTemplate($smarty, 'main');
+    loadTemplate($smarty, 'order');
     loadTemplate($smarty, 'footer');
 }

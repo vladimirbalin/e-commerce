@@ -57,7 +57,7 @@ function logoutAction()
 {
     if (isset($_SESSION['user'])) {
         unset($_SESSION['user']);
-        unset($_SESSION['cart']);
+//        unset($_SESSION['cart']);
     }
     redirect('/');
 }
@@ -72,8 +72,8 @@ function loginAction()
     if($userData['success']){
         $userData = $userData[0];
 
+        $resData = $userData;
         $resData['userName'] = $userData['name'] ? $userData['name'] : $userData['email'];
-        $resData['userEmail'] = $email;
 
         $_SESSION['user'] = $userData;
         $_SESSION['user']['displayName'] = $resData['userName'];

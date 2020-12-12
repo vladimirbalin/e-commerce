@@ -23,26 +23,28 @@
             <a href="/user/" id="userLink"></a><br>
             <a href="/user/logout/" id="logout">Выход</a>
         </div>
-        <div id="loginBox">
-            <div class="menuCaption">Авторизация</div>
-            <label for="loginEmail">login:</label><br>
-            <input type="text" name="loginEmail" id="loginEmail" value=""><br>
-            <label for="loginPwd">password:</label><br>
-            <input type="password" name="loginPwd" id="loginPwd" value=""><br>
-            <input type="button" onclick="login();" value="Войти">
-        </div>
-        <div id="registerBox">
-            <div class="menuCaption showHidden" onclick="showRegisterBox()">Регистрация</div>
-            <div id="registerBoxHidden" class="hide">
-                <label for="email">email:</label><br>
-                <input type="text" name="email" id="email"><br>
-                <label for="pwd1">пароль:</label> <br>
-                <input type="password" name="pwd1" id="pwd1"><br>
-                <label for="pwd2">повторить пароль:</label><br>
-                <input type="password" name="pwd2" id="pwd2"><br>
-                <input type="button" onclick="registerNewUser();" value="Зарегистрироваться"/>
+        {if !isset($hideLoginBox)}
+            <div id="loginBox">
+                <div class="menuCaption">Авторизация</div>
+                <label for="loginEmail">login:</label><br>
+                <input type="text" name="loginEmail" id="loginEmail" value=""><br>
+                <label for="loginPwd">password:</label><br>
+                <input type="password" name="loginPwd" id="loginPwd" value=""><br>
+                <input type="button" onclick="login();" value="Войти">
             </div>
-        </div>
+            <div id="registerBox">
+                <div class="menuCaption showHidden" onclick="showRegisterBox()">Регистрация</div>
+                <div id="registerBoxHidden" class="hide">
+                    <label for="email">email:</label><br>
+                    <input type="text" name="email" id="email"><br>
+                    <label for="pwd1">пароль:</label> <br>
+                    <input type="password" name="pwd1" id="pwd1"><br>
+                    <label for="pwd2">повторить пароль:</label><br>
+                    <input type="password" name="pwd2" id="pwd2"><br>
+                    <input type="button" onclick="registerNewUser();" value="Зарегистрироваться"/>
+                </div>
+            </div>
+        {/if}
     {/if}
 
     <div class="menuCaption">Корзина</div>
