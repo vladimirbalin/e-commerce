@@ -1,6 +1,5 @@
 <?php
 
-
 function getMainCategoriesWithChildren()
 {
     global $pdo;
@@ -24,10 +23,10 @@ function getChildrenOfCategories($catId)
 }
 
 /**
- * Получить данные категории по id
+ * Get the category data with id
  *
  * @param integer $catId ID категории
- * @return array - строка из бд категории
+ * @return array - one line from category db
  */
 
 function getCategoryById($catId)

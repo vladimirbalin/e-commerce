@@ -1,15 +1,15 @@
 <?php
 
 /**
- * Контроллер страницы товара (/product/1)
+ * Product page controller (/product/1)
  */
 
 require_once '../models/ProductsModel.php';
 require_once '../models/CategoriesModel.php';
 
 /**
- * Формирование страницы продукта
- * @param object $smarty шаблонизатор
+ * Rendering product page
+ * @param object $smarty template engine
  */
 function indexAction($smarty)
 {

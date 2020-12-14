@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Контроллер страницы категории (/category/1)
+ * Category page controller (/category/1)
  */
 
 require_once '../models/CategoriesModel.php';

@@ -1,16 +1,16 @@
 <?php
 
 /**
- * Контроллер работы с корзиной (/cart/)
+ * Cart page controller (/cart/)
  */
 
 require_once '../models/CategoriesModel.php';
 require_once '../models/ProductsModel.php';
 
 /**
- * Добавление товаров в корзину
- * @param integer id GET параметр - ID добавляемого продукта
- * @return string|false информация об операции (успех, количество элементов в корзине)
+ * Adding products to a cart
+ * @param integer id GET variable - ID of adding product
+ * @return string|false operation status (success, count of elements in a cart)
  */
 function addToCartAction()
 {
@@ -31,9 +31,9 @@ function addToCartAction()
 }
 
 /**
- * Удаление товаров из корзины
- * @param integer id GET параметр - ID добавляемого продукта
- * @return string|false информация об операции (успех, количество элементов в корзине)
+ * Removing products from cart
+ * @param integer id of GET variable - ID of removing product
+ * @return string|false operation status (success, count of elements in a cart)
  */
 function removeFromCartAction()
 {

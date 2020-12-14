@@ -25,10 +25,9 @@ function getProductById($productId)
 }
 
 /**
- * Получить список продуктов из массива идентификаторов (ID's)
- *
+ * Get the products list with id's array from db
  * @param array $itemIds
- * @return array|false массив данных продукта
+ * @return array|false products data array/false
  */
 function getProductsFromArray($itemIds)
 {

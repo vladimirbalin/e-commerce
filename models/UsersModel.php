@@ -1,14 +1,14 @@
 <?php
 
 /**
- * Регистрация нового пользователя
+ * New user registration
  *
- * @param string $email почта
- * @param string $pwdHash пароль хэшированный
+ * @param string $email
+ * @param string $pwdHash hashed password
  * @param string $name
  * @param string $phone
  * @param string $address
- * @return array массив данных нового пользователя
+ * @return array new user data array
  */
 
 function registerNewUser($email, $pwdHash, $name, $phone, $address)
@@ -64,9 +64,10 @@ function checkForErrors($email, $pwd1, $pwd2)
 
 /**
  * Проверка почты(существует ли уже в БД введенный пользователем email)
+ * Checking email(exists or not email in db)
  *
  * @param string $email
- * @return array|false массив - строка из таблицы users, либо false
+ * @return array|false array - string from users table, or false
  */
 
 function checkEmailForRepeat($email)
@@ -77,7 +78,7 @@ function checkEmailForRepeat($email)
 }
 
 /**
- * Залогинивание юзера
+ * Login in user
  * @param $email
  * @param $pwd
  * @return array user's data
@@ -99,7 +100,7 @@ function loginUser($email, $pwd)
 }
 
 /**
- * Обновляет данные пользователя
+ * Updating user's data
  * @param $name
  * @param $phone
  * @param $address

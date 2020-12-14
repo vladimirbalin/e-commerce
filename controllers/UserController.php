@@ -1,16 +1,16 @@
 <?php
 /**
- * Контроллер функций пользователя
+ * User functions controller
  */
 
 require_once '../models/CategoriesModel.php';
 require_once '../models/UsersModel.php';
 
 /**
- * регистрация пользователя
- * Инициализация сессионной переменной ($_SESSION['user'])
+ * user registration
+ * Initializing session variable ($_SESSION['user'])
  *
- * @return string информация об операции (успех, массив с данными о пользователе)
+ * @return string status (success, user data array)
  */
 function registerAction()
 {
@@ -104,7 +104,7 @@ function indexAction($smarty)
 }
 
 /**
- * Обновление данных пользователя
+ * Updating user info
  */
 function updateAction()
 {
