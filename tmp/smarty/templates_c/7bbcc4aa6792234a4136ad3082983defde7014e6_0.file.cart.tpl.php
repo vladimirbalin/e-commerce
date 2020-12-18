@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-12-12 19:34:43
+/* Smarty version 3.1.34-dev-7, created on 2020-12-14 23:57:14
   from 'D:\web-no-sync\openserver\OpenServer\domains\e-commerce\views\default\cart.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5fd4c6f3a44671_13045082',
+  'unifunc' => 'content_5fd7a77aca0ad5_65562436',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7bbcc4aa6792234a4136ad3082983defde7014e6' => 
     array (
       0 => 'D:\\web-no-sync\\openserver\\OpenServer\\domains\\e-commerce\\views\\default\\cart.tpl',
-      1 => 1607780074,
+      1 => 1607961367,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5fd4c6f3a44671_13045082 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fd7a77aca0ad5_65562436 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="centerColumn">
     <h3 class="title">Корзина</h3>
     <?php if (!$_smarty_tpl->tpl_vars['rsProducts']->value) {?> В корзине пусто
@@ -99,12 +99,12 @@ $_smarty_tpl->tpl_vars['__smarty_foreach_products']->value['iteration']++;
                             <a id="removeFromCart_<?php echo $_smarty_tpl->tpl_vars['product']->value['id'];?>
 "
                                href="#"
-                               onclick="removeFromCart(<?php echo $_smarty_tpl->tpl_vars['product']->value['id'];?>
+                               onclick="cartInteractions.removeFromCart(<?php echo $_smarty_tpl->tpl_vars['product']->value['id'];?>
 ); return false;">Удалить из корзины</a>
                             <a id="addToCart_<?php echo $_smarty_tpl->tpl_vars['product']->value['id'];?>
 " href="#"
                                class="hide"
-                               onclick="addToCart(<?php echo $_smarty_tpl->tpl_vars['product']->value['id'];?>
+                               onclick="cartInteractions.addToCart(<?php echo $_smarty_tpl->tpl_vars['product']->value['id'];?>
 ); return false;">Восстановить</a>
                         </td>
                     </tr>

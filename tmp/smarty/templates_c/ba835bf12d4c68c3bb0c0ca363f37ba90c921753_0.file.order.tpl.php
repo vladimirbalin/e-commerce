@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-12-12 20:09:06
+/* Smarty version 3.1.34-dev-7, created on 2020-12-14 23:28:33
   from 'D:\web-no-sync\openserver\OpenServer\domains\e-commerce\views\default\order.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5fd4cf02bdcbd8_10350038',
+  'unifunc' => 'content_5fd7a0c11b9259_95891574',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ba835bf12d4c68c3bb0c0ca363f37ba90c921753' => 
     array (
       0 => 'D:\\web-no-sync\\openserver\\OpenServer\\domains\\e-commerce\\views\\default\\order.tpl',
-      1 => 1607781838,
+      1 => 1607961943,
       2 => 'file',
     ),
   ),
@@ -20,10 +20,10 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5fd4cf02bdcbd8_10350038 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fd7a0c11b9259_95891574 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="centerColumn">
     <h3 class="title">Данные заказа</h3>
-    <form action="/cart/saveorder/" id="orderForm" method="POST">
+    <form id="orderForm" method="POST">
         <table>
             <tr>
                 <td>№</td>
@@ -113,7 +113,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 <input type="text" name="loginEmail" id="loginEmail" value=""><br>
                 <label for="loginPwd">password:</label><br>
                 <input type="password" name="loginPwd" id="loginPwd" value=""><br>
-                <input type="button" onclick="login();" value="Войти">
+                <input type="button" onclick="user.login();" value="Войти">
             </div>
 
             <div id="registerBox">
@@ -132,14 +132,14 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                     <input type="text" name="phone" id="phone" value=""><br>
                     <label for="phone">Адрес*</label><br>
                     <textarea name="address" id="address"></textarea><br>
-                    <input type="button" onclick="registerNewUser();" value="Зарегистрироваться"/>
+                    <input type="button" onclick="user.registerNewUser();" value="Зарегистрироваться"/>
                 </div>
             </div>
             <?php $_smarty_tpl->_assignInScope('buttonClass', "class='hide'");?>
         <?php }?>
 
         <input type="button" id="btnSaveOrder" <?php echo $_smarty_tpl->tpl_vars['buttonClass']->value;?>
- value="Оформить заказ" onclick="saveOrder()">
+ value="Оформить заказ" onclick="orders.saveOrder()">
     </form>
 </div>
 </div><?php }

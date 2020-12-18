@@ -53,10 +53,10 @@
                         <td>
                             <a id="removeFromCart_{$product['id']}"
                                href="#"
-                               onclick="removeFromCart({$product['id']}); return false;">Удалить из корзины</a>
+                               onclick="cartInteractions.removeFromCart({$product['id']}); return false;">Удалить из корзины</a>
                             <a id="addToCart_{$product['id']}" href="#"
                                class="hide"
-                               onclick="addToCart({$product['id']}); return false;">Восстановить</a>
+                               onclick="cartInteractions.addToCart({$product['id']}); return false;">Восстановить</a>
                         </td>
                     </tr>
                 {/foreach}

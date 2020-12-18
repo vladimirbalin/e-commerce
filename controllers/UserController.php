@@ -10,7 +10,7 @@ require_once '../models/UsersModel.php';
  * user registration
  * Initializing session variable ($_SESSION['user'])
  *
- * @return string status (success, user data array)
+ * @return string json user data array
  */
 function registerAction()
 {
