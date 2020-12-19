@@ -30,10 +30,10 @@
                 <input type="text" name="loginEmail" id="loginEmail" value=""><br>
                 <label for="loginPwd">password:</label><br>
                 <input type="password" name="loginPwd" id="loginPwd" value=""><br>
-                <input type="button" onclick="login();" value="Войти">
+                <input type="button" onclick="user.login();" value="Войти">
             </div>
             <div id="registerBox">
-                <div class="menuCaption showHidden" onclick="showRegisterBox()">Регистрация</div>
+                <div class="menuCaption showHidden" onclick="utils.showRegisterBox()">Регистрация</div>
                 <div id="registerBoxHidden" class="hide">
                     <label for="email">email:</label><br>
                     <input type="text" name="email" id="email"><br>
@@ -41,7 +41,7 @@
                     <input type="password" name="pwd1" id="pwd1"><br>
                     <label for="pwd2">повторить пароль:</label><br>
                     <input type="password" name="pwd2" id="pwd2"><br>
-                    <input type="button" onclick="registerNewUser();" value="Зарегистрироваться"/>
+                    <input type="button" onclick="user.registerNewUser();" value="Зарегистрироваться"/>
                 </div>
             </div>
         {/if}

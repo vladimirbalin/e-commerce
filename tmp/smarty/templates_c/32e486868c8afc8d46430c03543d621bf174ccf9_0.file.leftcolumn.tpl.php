@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-12-12 19:12:08
+/* Smarty version 3.1.34-dev-7, created on 2020-12-14 23:28:33
   from 'D:\web-no-sync\openserver\OpenServer\domains\e-commerce\views\default\leftcolumn.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5fd4c1a8802b25_39004804',
+  'unifunc' => 'content_5fd7a0c1133c42_56040344',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '32e486868c8afc8d46430c03543d621bf174ccf9' => 
     array (
       0 => 'D:\\web-no-sync\\openserver\\OpenServer\\domains\\e-commerce\\views\\default\\leftcolumn.tpl',
-      1 => 1607778248,
+      1 => 1607961477,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5fd4c1a8802b25_39004804 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fd7a0c1133c42_56040344 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="leftColumn">
     <div class="menuCaption">Меню:</div>
     <?php
@@ -72,10 +72,10 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 <input type="text" name="loginEmail" id="loginEmail" value=""><br>
                 <label for="loginPwd">password:</label><br>
                 <input type="password" name="loginPwd" id="loginPwd" value=""><br>
-                <input type="button" onclick="login();" value="Войти">
+                <input type="button" onclick="user.login();" value="Войти">
             </div>
             <div id="registerBox">
-                <div class="menuCaption showHidden" onclick="showRegisterBox()">Регистрация</div>
+                <div class="menuCaption showHidden" onclick="utils.showRegisterBox()">Регистрация</div>
                 <div id="registerBoxHidden" class="hide">
                     <label for="email">email:</label><br>
                     <input type="text" name="email" id="email"><br>
@@ -83,7 +83,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                     <input type="password" name="pwd1" id="pwd1"><br>
                     <label for="pwd2">повторить пароль:</label><br>
                     <input type="password" name="pwd2" id="pwd2"><br>
-                    <input type="button" onclick="registerNewUser();" value="Зарегистрироваться"/>
+                    <input type="button" onclick="user.registerNewUser();" value="Зарегистрироваться"/>
                 </div>
             </div>
         <?php }?>

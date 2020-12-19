@@ -5,12 +5,12 @@
     <a href="#"
        id="addToCart_{$rsProduct['id']}"
             {if $itemInCart === 1} class="hide" {/if}
-       onclick="addToCart({$rsProduct['id']}); return false;"
+       onclick="cartInteractions.addToCart({$rsProduct['id']}); return false;"
     >Добавить в корзину</a>
     <a href="#"
        id="removeFromCart_{$rsProduct['id']}"
             {if $itemInCart === 0} class="hide" {/if}
-       onclick="removeFromCart({$rsProduct['id']}); return false;">Убрать из корзины</a>
+       onclick="cartInteractions.removeFromCart({$rsProduct['id']}); return false;">Убрать из корзины</a>
     <p>Описание: {$rsProductDescription}</p>
 
 </div>

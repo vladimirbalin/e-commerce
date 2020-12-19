@@ -48,9 +48,7 @@ function sqlInsertWithPrepare($sql, $rsArray)
 {
     if (!$sql) return false;
     global $pdo;
-    $pdo->prepare($sql)->execute($rsArray);
-
-    return true;
+    return $pdo->prepare($sql)->execute($rsArray);
 }
 function filterInputData($data)
 {

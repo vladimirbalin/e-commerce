@@ -1,6 +1,6 @@
 <div id="centerColumn">
     <h3 class="title">Данные заказа</h3>
-    <form action="/cart/saveorder/" id="orderForm" method="POST">
+    <form id="orderForm" method="POST">
         <table>
             <tr>
                 <td>№</td>
@@ -61,7 +61,7 @@
                 <input type="text" name="loginEmail" id="loginEmail" value=""><br>
                 <label for="loginPwd">password:</label><br>
                 <input type="password" name="loginPwd" id="loginPwd" value=""><br>
-                <input type="button" onclick="login();" value="Войти">
+                <input type="button" onclick="user.login();" value="Войти">
             </div>
 
             <div id="registerBox">
@@ -80,13 +80,13 @@
                     <input type="text" name="phone" id="phone" value=""><br>
                     <label for="phone">Адрес*</label><br>
                     <textarea name="address" id="address"></textarea><br>
-                    <input type="button" onclick="registerNewUser();" value="Зарегистрироваться"/>
+                    <input type="button" onclick="user.registerNewUser();" value="Зарегистрироваться"/>
                 </div>
             </div>
             {$buttonClass="class='hide'"}
         {/if}
 
-        <input type="button" id="btnSaveOrder" {$buttonClass} value="Оформить заказ" onclick="saveOrder()">
+        <input type="button" id="btnSaveOrder" {$buttonClass} value="Оформить заказ" onclick="orders.saveOrder()">
     </form>
 </div>
 </div>
