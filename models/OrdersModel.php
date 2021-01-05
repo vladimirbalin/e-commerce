@@ -31,3 +31,20 @@ function createNewOrder($name, $phone, $address)
     }
     return false;
 }
+
+function getOrdersWithProductsByUser($userId)
+{
+    global $pdo;
+    $userId = intval($userId);
+    $sql = "SELECT * FROM orders
+            WHERE user_id='{$userId}'
+            ORDER BY id DESC";
+    $rsOrders = sqlToArray($sql);
+    foreach ($rsOrders as &$order) {
+        $rsPurchaseProducts = getPurchaseByOrderId($order['id']);
+        if ($rsPurchaseProducts) {
+            $order['products'] = $rsPurchaseProducts;
+        }
+    }
+    return $rsOrders;
+}

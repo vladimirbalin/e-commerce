@@ -24,7 +24,7 @@ function indexAction($smarty)
     if(in_array($productId, $_SESSION['cart'])){
         $smarty->assign('itemInCart', 1);
     }
-    $smarty->assign('pageTitle', 'Страница товара');
+    $smarty->assign('pageTitle', "Страница товара {$rsProduct['name']}");
     $smarty->assign('rsCategories', $rsCategories);
     $smarty->assign('rsProduct', $rsProduct);
     $smarty->assign('rsProductDescription', str_replace("\\n", "<br>", $rsProduct['description']));

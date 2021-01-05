@@ -34,28 +34,32 @@ function sqlToArray($sql)
 
     return !$query ? false : $query->fetchAll(PDO::FETCH_ASSOC);
 }
-function sqlExec($sql)
+
+function sqlAlterQuery($sql)
 {
     if (!$sql) return false;
     global $pdo;
     $query = $pdo->query($sql);
-    if($query){
+    if ($query) {
         return true;
     }
     return false;
 }
+
 function sqlInsertWithPrepare($sql, $rsArray)
 {
     if (!$sql) return false;
     global $pdo;
     return $pdo->prepare($sql)->execute($rsArray);
 }
+
 function filterInputData($data)
 {
     return htmlspecialchars(stripslashes(trim($data)));
 }
 
-function redirect($url = '/'){
+function redirect($url = '/')
+{
     header("Location: {$url}");
     exit;
 }

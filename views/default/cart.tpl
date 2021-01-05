@@ -1,6 +1,6 @@
 <div id="centerColumn">
     <h3 class="title">Корзина</h3>
-    {if !$rsProducts} В корзине пусто
+    {if !$rsProducts} <p>В корзине пусто</p>
     {else}
         <form action="/cart/order/" method="POST">
             <table>

@@ -33,6 +33,63 @@
             <td>&nbsp;</td>
             <td><input type="button" value="Сохранить изменения" onclick="updateUserData();"></td>
         </tr>
+
     </table>
+    {if !$rsUserOrders}
+        <p>Нет заказов...</p>
+    {else}
+        <table border="1">
+            <tr class="table_titles">
+                <th>№</th>
+                <th>Действие</th>
+                <th>ID заказа</th>
+                <th>Статус</th>
+                <th>Дата создания</th>
+                <th>Дата оплаты</th>
+                <th>Дополнительная информация</th>
+            </tr>
+            {foreach $rsUserOrders as $order name=orders}
+                <tr>
+                    <th>{$smarty.foreach.orders.iteration}</th>
+                    <th><a href="#" onclick="user.showProducts('{$order['id']}'); return false;">Показать товары заказа</a>
+                    </th>
+
+                    <th>{$order['id']}</th>
+                    {if !{$order['status']}}
+                        <th>Не оплачен</th>
+                    {else}
+                        <th>Оплачен</th>
+                    {/if}
+                    <th>{$order['date_created']}</th>
+                    <th>{$order['date_payment']}</th>
+                    <th>{$order['comment']}</th>
+                </tr>
+                <tr class="hide" id="purchaseForOrderId_{$order['id']}">
+                    <td colspan="7">
+                        {if $order['products']}
+                            <table border="1">
+                                <tr>
+                                    <th>№</th>
+                                    <th>ID товара</th>
+                                    <th>Название</th>
+                                    <th>Цена</th>
+                                    <th>Количество</th>
+                                </tr>
+                                {foreach $order['products'] as $product name=products}
+                                    <tr>
+                                        <td>{$smarty.foreach.products.iteration}</td>
+                                        <td>{$product['product_id']}</td>
+                                        <td><a href="/product/{$product['product_id']}/">{$product['name']}</a></td>
+                                        <td>{$product['price']}</td>
+                                        <td>{$product['amount']}</td>
+                                    </tr>
+                                {/foreach}
+                            </table>
+                        {/if}
+                    </td>
+                </tr>
+            {/foreach}
+        </table>
+    {/if}
 </div>
 </div>

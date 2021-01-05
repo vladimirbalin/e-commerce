@@ -16,5 +16,14 @@ function purchaseNewOrder($orderId, $cart)
     }
     $sql .= implode(', ', $values);
 
-    return sqlExec($sql);
+    return sqlAlterQuery($sql);
+}
+
+function getPurchaseByOrderId($orderId)
+{
+    $sql = "SELECT purchase.*,products.name 
+            FROM purchase
+            JOIN products ON products.id=purchase.product_id
+            WHERE purchase.order_id='{$orderId}'";
+    return sqlToArray($sql);
 }

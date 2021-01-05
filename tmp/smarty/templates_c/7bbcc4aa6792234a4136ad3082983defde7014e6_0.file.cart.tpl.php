@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-12-14 23:57:14
+/* Smarty version 3.1.34-dev-7, created on 2020-12-20 05:23:13
   from 'D:\web-no-sync\openserver\OpenServer\domains\e-commerce\views\default\cart.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5fd7a77aca0ad5_65562436',
+  'unifunc' => 'content_5fde8b61e40539_68756622',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7bbcc4aa6792234a4136ad3082983defde7014e6' => 
     array (
       0 => 'D:\\web-no-sync\\openserver\\OpenServer\\domains\\e-commerce\\views\\default\\cart.tpl',
-      1 => 1607961367,
+      1 => 1608420192,
       2 => 'file',
     ),
   ),
@@ -20,10 +20,10 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5fd7a77aca0ad5_65562436 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fde8b61e40539_68756622 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="centerColumn">
     <h3 class="title">Корзина</h3>
-    <?php if (!$_smarty_tpl->tpl_vars['rsProducts']->value) {?> В корзине пусто
+    <?php if (!$_smarty_tpl->tpl_vars['rsProducts']->value) {?> <p>В корзине пусто</p>
     <?php } else { ?>
         <form action="/cart/order/" method="POST">
             <table>

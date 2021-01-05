@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-    width: 1100px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
@@ -18,10 +18,12 @@ body {
     height: 70px;
     text-align: center;
 }
+
 .main {
     display: flex;
     justify-content: left;
 }
+
 .leftColumn {
     min-width: 200px;
 }
@@ -40,12 +42,13 @@ body {
 }
 
 #centerColumn {
-    width: 600px;
-    padding-left: 90px;
+    width: 100%;
+    padding-left: 40px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
+
 .product-menu {
     flex-basis: 33%;
     display: flex;
@@ -54,7 +57,8 @@ body {
     align-items: center;
     margin-bottom: 30px;
 }
-.subcategory{
+
+.subcategory {
     flex-basis: 100%;
 }
 
@@ -66,6 +70,7 @@ body {
     padding: 3px;
     font-weight: bold;
 }
+
 .showHidden {
     color: #0000FF;
     cursor: pointer;
@@ -75,13 +80,26 @@ body {
 .cartBox {
     padding: 5px 0 5px 0;
 }
+
 .title {
     min-width: 100%;
     font-size: 24px;
     font-weight: bold;
     height: 50px;
+    text-align: center;
 }
 
-#userBox{
+#userBox {
     margin: 5px;
+}
+
+table {
+    width: 100%;
+}
+table .table_titles th{
+    font-weight: bold;
+}
+table th {
+    border: 1px solid black;
+    font-weight: normal;
 }

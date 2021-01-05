@@ -5,9 +5,11 @@
 
 require_once '../models/CategoriesModel.php';
 require_once '../models/UsersModel.php';
+require_once '../models/OrdersModel.php';
+require_once '../models/PurchaseModel.php';
 
 /**
- * user registration
+ * User registration
  * Initializing session variable ($_SESSION['user'])
  *
  * @return string json user data array
@@ -94,9 +96,11 @@ function indexAction($smarty)
     }
 
     $rsCategories = getMainCategoriesWithChildren();
+    $rsUserOrders = getCurrentUserOrders();
 
     $smarty->assign('pageTitle', 'Страница пользователя');
     $smarty->assign('rsCategories', $rsCategories);
+    $smarty->assign('rsUserOrders', $rsUserOrders);
 
     loadTemplate($smarty, 'main');
     loadTemplate($smarty, 'user');

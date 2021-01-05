@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-11-24 20:35:38
+/* Smarty version 3.1.34-dev-7, created on 2020-12-20 05:22:02
   from 'D:\web-no-sync\openserver\OpenServer\domains\e-commerce\views\default\main.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5fbd1a3ac89216_36107470',
+  'unifunc' => 'content_5fde8b1a815621_33636897',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f44972403b2489add4d3d1b72f2713444ad37a54' => 
     array (
       0 => 'D:\\web-no-sync\\openserver\\OpenServer\\domains\\e-commerce\\views\\default\\main.tpl',
-      1 => 1606228537,
+      1 => 1608420121,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:leftcolumn.tpl' => 1,
   ),
 ),false)) {
-function content_5fbd1a3ac89216_36107470 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fde8b1a815621_33636897 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <html lang="en">
 <head>
@@ -39,8 +39,6 @@ function content_5fbd1a3ac89216_36107470 (Smarty_Internal_Template $_smarty_tpl)
 </head>
 <body>
 <div class="container">
-    <?php echo $_smarty_tpl->tpl_vars['pageTitle']->value;?>
-
     <div id="header">
         <h1>
             <a href="http://e-commerce">my shop - интернет магазин</a></h1>

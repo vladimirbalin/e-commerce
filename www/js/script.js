@@ -137,7 +137,11 @@ const user = {
             alert(data['message']);
         });
 
-}
+},
+    showProducts: function (orderId) {
+        const obj = document.getElementById(`purchaseForOrderId_${orderId}`);
+        obj.classList.toggle('hide');
+    }
 }
 const utils = {
     getData: function(objForm) {

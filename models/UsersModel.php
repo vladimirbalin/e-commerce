@@ -138,7 +138,7 @@ function updateUserData($name, $phone, $address, $pwd1, $pwd2, $curPwd)
                 WHERE
             email='{$email}' AND pwd='{$curPwdHash}'
             ";
-    return sqlExec($sql);
+    return sqlAlterQuery($sql);
 }
 
 function getPwd($email)
@@ -148,4 +148,10 @@ function getPwd($email)
             WHERE email='{$email}'
             LIMIT 1";
     return sqlToArray($sql);
+}
+
+function getCurrentUserOrders()
+{
+    $userId = $_SESSION['user']['id'];
+    return getOrdersWithProductsByUser($userId);
 }

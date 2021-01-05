@@ -12,7 +12,6 @@
 </head>
 <body>
 <div class="container">
-    {$pageTitle}
     <div id="header">
         <h1>
             <a href="http://e-commerce">my shop - интернет магазин</a></h1>
