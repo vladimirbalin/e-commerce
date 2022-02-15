@@ -25,5 +25,5 @@ function getPurchaseByOrderId($orderId)
             FROM purchase
             JOIN products ON products.id=purchase.product_id
             WHERE purchase.order_id='{$orderId}'";
-    return sqlToArray($sql);
+    return fetchAll(query($sql));
 }

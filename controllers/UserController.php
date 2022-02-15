@@ -16,7 +16,7 @@ require_once '../models/PurchaseModel.php';
  */
 function registerAction()
 {
-    $dataFromForm = json_decode(file_get_contents('php://input'), true);
+    $dataFromForm = $_POST;
     $email = $dataFromForm['email'] ?? null;
     $email = trim($email);
 
@@ -29,7 +29,6 @@ function registerAction()
     $name = trim($name);
 
     $resData = checkForErrors($email, $pwd1, $pwd2);
-
     if (!$resData && checkEmailForRepeat($email)) {
         $resData['success'] = false;
         $resData['message'] = "Пользователя с таким email('{$email}') уже зарегистрирован";

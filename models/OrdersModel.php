@@ -26,7 +26,7 @@ function createNewOrder($name, $phone, $address)
                 FROM orders
                 ORDER BY id DESC
                 LIMIT 1";
-        $rs = sqlToArray($sql);
+        $rs = fetchAll(query($sql));
         if (isset($rs[0]['id'])) return $rs[0]['id'];
     }
     return false;
@@ -39,7 +39,7 @@ function getOrdersWithProductsByUser($userId)
     $sql = "SELECT * FROM orders
             WHERE user_id='{$userId}'
             ORDER BY id DESC";
-    $rsOrders = sqlToArray($sql);
+    $rsOrders = fetchAll(query($sql));
     foreach ($rsOrders as &$order) {
         $rsPurchaseProducts = getPurchaseByOrderId($order['id']);
         if ($rsPurchaseProducts) {

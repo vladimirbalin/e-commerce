@@ -2,10 +2,10 @@
 
 $dbLocation = '127.0.0.1';
 $dbName = "myshop";
-$dbUserName = "postgres";
-$dbPassword = "";
+$dbUserName = "root";
+$dbPassword = "root";
 
-$pdo = new PDO("pgsql:host=$dbLocation;dbname=$dbName", $dbUserName, $dbPassword);
+$pdo = new PDO("mysql:host=$dbLocation;dbname=$dbName", $dbUserName, $dbPassword);
 
 if(!$pdo){
     echo "Ошибка доступа к DB";

@@ -67,9 +67,13 @@ const user = {
     fetch(`/user/register/`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
         },
-        body: JSON.stringify(postData)
+        body: new URLSearchParams({
+            'email': postData.email,
+            'pwd1': postData.pwd1,
+            'pwd2': postData.pwd2
+        })
     })
         .then(response => response.json())
         .then(data => {

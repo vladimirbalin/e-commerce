@@ -20,7 +20,6 @@ function registerNewUser($email, $pwdHash, $name, $phone, $address)
 
     $sql = "INSERT INTO users (email, pwd, name, phone, address)
             VALUES (:email, :pwd, :name, :phone, :address)";
-
     $rs = sqlInsertWithPrepare($sql, [
         'email' => $email,
         'pwd' => $pwdHash,
@@ -32,7 +31,7 @@ function registerNewUser($email, $pwdHash, $name, $phone, $address)
         $sql = "SELECT * FROM users 
                 WHERE (email='{$email}' AND pwd='{$pwdHash}')
                 LIMIT 1";
-        $rs = sqlToArray($sql);
+        $rs = fetchAll(query($sql));
         $rs['success'] = isset($rs[0]) ? 1 : 0;
     } else {
         $rs['success'] = 0;
@@ -74,7 +73,7 @@ function checkEmailForRepeat($email)
 {
     $sql = "SELECT id FROM users
             WHERE email='{$email}'";
-    return sqlToArray($sql);
+    return fetchAll(query($sql));
 }
 
 /**
@@ -91,7 +90,7 @@ function loginUser($email, $pwd)
             WHERE (email='{$email}')
             LIMIT 1";
 
-    $rs = sqlToArray($sql);
+    $rs = fetchAll(query($sql));
 
     $checkPwd = password_verify($pwd, $rs[0]['pwd']);
     $rs['success'] = $checkPwd ? 1 : 0;
@@ -147,7 +146,7 @@ function getPwd($email)
             FROM users
             WHERE email='{$email}'
             LIMIT 1";
-    return sqlToArray($sql);
+    return fetchAll(query($sql));
 }
 
 function getCurrentUserOrders()

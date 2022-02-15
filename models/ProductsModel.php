@@ -7,21 +7,21 @@ function getLastProducts($limit = null)
     if ($limit) {
         $sql .= " LIMIT {$limit}";
     }
-    return sqlToArray($sql);
+    return fetchAll(query($sql));
 }
 
 function getProductsByCategory($catId)
 {
     $sql = "SELECT * FROM products
             WHERE category_id='{$catId}'";
-    return sqlToArray($sql);
+    return fetchAll(query($sql));
 }
 
 function getProductById($productId)
 {
     $sql = "SELECT * FROM products
             WHERE id='{$productId}'";
-    return sqlToArray($sql)[0];
+    return fetchAll(query($sql))[0];
 }
 
 /**
@@ -34,5 +34,5 @@ function getProductsFromArray($itemIds)
     $strIds = implode(", ", $itemIds);
     $sql = "SELECT * FROM products
             WHERE id in ($strIds)";
-    return sqlToArray($sql);
+    return fetchAll(query($sql));
 }

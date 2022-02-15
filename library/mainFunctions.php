@@ -26,13 +26,15 @@ function d($obj = null, $die = 1)
     if ($die) die;
 }
 
-function sqlToArray($sql)
+function query($sql)
 {
     if (!$sql) return false;
     global $pdo;
-    $query = $pdo->query($sql);
-
-    return !$query ? false : $query->fetchAll(PDO::FETCH_ASSOC);
+    return $pdo->query($sql);
+}
+function fetchAll($statement)
+{
+    return !$statement ? false : $statement->fetchAll(PDO::FETCH_ASSOC);
 }
 
 function sqlAlterQuery($sql)

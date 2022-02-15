@@ -31,7 +31,7 @@
         </tr>
         <tr>
             <td>&nbsp;</td>
-            <td><input type="button" value="Сохранить изменения" onclick="updateUserData();"></td>
+            <td><input type="button" value="Сохранить изменения" onclick="user.updateUserData();"></td>
         </tr>
 
     </table>
