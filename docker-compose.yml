@@ -5,6 +5,8 @@ services:
     build: ./app
     ports:
       - "80:80"
+    volumes:
+      - ./:/var/www
   db:
     build: ./db
     ports:
@@ -17,5 +19,6 @@ services:
     volumes:
       - e-commerce-mysql:/var/lib/mysql
       - ./db/mysql-config.cnf:/etc/mysql/conf.d/config.cnf
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
 volumes:
   e-commerce-mysql:
