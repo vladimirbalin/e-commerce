@@ -4,7 +4,7 @@ COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 
 RUN a2enmod rewrite
 
-RUN apt-get-update && \
+RUN apt-get update && \
     apt-get install \
     libzip-dev \
     wget \
