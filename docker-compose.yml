@@ -16,6 +16,6 @@ services:
       MYSQL_PASSWORD: root
     volumes:
       - e-commerce-mysql:/var/lib/mysql
-      - ./docker/mysql-config.cnf:/etc/mysql/conf.d/config.cnf
+      - ./db/mysql-config.cnf:/etc/mysql/conf.d/config.cnf
 volumes:
   e-commerce-mysql:
