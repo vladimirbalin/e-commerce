@@ -16,7 +16,7 @@ RUN apt-get update && \
 RUN docker-php-ext-install zip pdo_mysql
 
 RUN apt-get purge -y g++ \
-    && apt-get autiremove -y \
+    && apt-get autoremove -y \
     && rm -r /var/lib/apt/lists/* \
     && rm -rf /tmp/*
 
