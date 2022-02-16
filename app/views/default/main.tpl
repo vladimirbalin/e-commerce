@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{$pageTitle}</title>
     <link rel="stylesheet" href="{$templateWebPath}/css/main.css" type="text/css">
-    <script src="/www/js/script.js"></script>
+    <script src="/app/www/www/js/script.js"></script>
 {*    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>*}
 </head>
 <body>

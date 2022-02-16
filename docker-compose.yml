@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+  app:
+    build: ./app
+    ports:
+      - "80:80"
+  db:
+    build: ./db
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: myshop
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+    volumes:
+      - e-commerce-mysql:/var/lib/mysql
+      - ./docker/mysql-config.cnf:/etc/mysql/conf.d/config.cnf
+volumes:
+  e-commerce-mysql:
